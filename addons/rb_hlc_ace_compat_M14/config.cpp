@@ -16,18 +16,24 @@ class CfgPatches{
 
 class CfgWeapons
 {
-	class itemCore;
-	class optic_LRPS : ItemCore {
-		class ItemInfo;
-};
-	class hlc_optic_LeupoldM3A : optic_lrps	{
-		class ItemInfo: ItemInfo{};
-	};
-class hlc_optic_LeupoldM3A_G3: hlc_optic_LeupoldM3A
-	{
+class hlc_optic_LeupoldM3A_G3{
 		
-		class ItemInfo: ItemInfo
-		{
+		class ItemInfo{
+		
+			class OpticsModes
+			{
+				class Snip
+				{
+					discreteDistance[] = {100};
+					discreteDistanceInitIndex = 0;
+					
+				};
+				
+			};
+		};
+	};
+	class hlc_optic_LRT_m14 {
+		class ItemInfo{
 		
 			class OpticsModes
 			{

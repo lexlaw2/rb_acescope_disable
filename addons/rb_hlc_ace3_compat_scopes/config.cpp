@@ -53,16 +53,16 @@ class hlc_optic_LeupoldM3A : optic_lrps {
 			};
 		};
 	};
-	// class hlc_optic_VOMZ3d {
-		// class ItemInfo{
-			// class OpticsModes{
-				// class Snip{
-					// discreteDistance[] = {100};
-					// discreteDistanceInitIndex = 0;
+	class hlc_optic_VOMZ3d: hlc_optic_VOMZ {
+		class ItemInfo: ItemInfo{
+			class OpticsModes{
+				class Snip{
+					discreteDistance[] = {100};
+					discreteDistanceInitIndex = 0;
 					
-				// };
-			// };
-		// };
-	// };
+				};
+			};
+		};
+	};
 	
 };

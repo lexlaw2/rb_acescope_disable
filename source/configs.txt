@@ -1,0 +1,1256 @@
+copyToClipboard(preProcessFile "\RKSL_attachments_core\config.cpp")
+class CfgPatches
+{
+class RKSL_Attachments_core
+{
+units[] = {};
+weapons[] = {};
+requiredVersion = 0.1;
+requiredAddons[] = {"A3_Data_F"};
+};
+};
+class CfgMods
+{
+class Mod_Base;
+class RKSL_Attachments: Mod_Base
+{
+author = "da12thMonkey, RKSL Studios";
+picture = "\RKSL_attachments_core\Pictures\RKSL_AP_Mural.paa";
+logo = "\RKSL_attachments_core\Logos\RKSL_AP_LogoAsnl.paa";
+logoOver = "\RKSL_attachments_core\Logos\RKSL_AP_LogoOver.paa";
+logoSmall = "\RKSL_attachments_core\Logos\RKSL_AP_LogoSmall.paa";
+dlcColor[] = {0.96,0.46,0.015,1};
+fieldManualTopicAndHint[] = {};
+hideName = 0;
+hidePicture = 0;
+tooltip = "RKSL Attachments Pack";
+tooltipOwned = "RKSL Attachments Pack";
+name = "RKSL Attachments Pack";
+overview = "RKSL Attachments Pack adds a selection of weapon attachments to Arma 3, utilising the game's weapon customisation feature.<br />The main aim of the pack is to reflect personal equipment available to members of the UK's Armed Forces and their weapon systems.";
+action = "http://www.rkslstudios.info/";
+};
+};
+
+
+
+
+
+
+
+
+
+
+
+
+class cfgPatches
+{
+class RKSL_LDS
+{
+units[] = {"RKSL_Item_optic_LDS","RKSL_Item_optic_LDS_C"};
+weapons[] = {"RKSL_optic_LDS","RKSL_optic_LDS_C"};
+requiredVersion = 1.04;
+requiredAddons[] = {"RKSL_Attachments_core","A3_Weapons_F","A3_Weapons_F_Acc","cba_jr","A3_Data_F"};
+version = 1;
+author = "RKSL Studios";
+authorUrl = "http://www.rkslstudios.info/";
+};
+};
+class asdg_OpticRail;
+class asdg_OpticRail1913: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_LDS = 1;
+RKSL_optic_LDS_C = 1;
+};
+};
+class cfgWeapons
+{
+class ItemCore;
+class InventoryItem_Base_F;
+class InventoryOpticsItem_Base_F;
+class RKSL_optic_LDS: ItemCore
+{
+scope = 2;
+displayName = "LDS";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_LDS\data\UI\gear_RKSL_LDS_ca.paa";
+model = "\RKSL_LDS\RKSL_LDS.p3d";
+descriptionShort = "Elcan Lightweight Day Sight (SpecterOS4x)<br />Magnification: 4x<br />Shield CQB sight<br />Magnification: 1x";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0.1;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 1;
+mass = 8;
+RMBhint = "Lightweight Day Sight";
+optics = 1;
+weaponInfoType = "RscWeaponRangeZeroingFOV";
+modelOptics = "\RKSL_LDS\Optics\RKSL_LDS_2d.p3d";
+class OpticsModes
+{
+class CQB
+{
+opticsID = 1;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 100;
+distanceZoomMax = 100;
+cameraDir = "";
+};
+class LDS
+{
+opticsID = 2;
+useModelOptics = 1;
+opticsPPEffects[] = {"OpticsCHAbera5","OpticsBlur5"};
+opticsZoomMin = 0.0625;
+opticsZoomMax = 0.0625;
+opticsZoomInit = 0.0625;
+discretefov[] = {0.0625,0.0625};
+memoryPointCamera = "opticView";
+modelOptics[] = {"\RKSL_LDS\Optics\RKSL_LDS_2d.p3d","\RKSL_LDS\Optics\RKSL_LDS_2d_red.p3d"};
+visionMode[] = {"Normal"};
+distanceZoomMin = 300;
+distanceZoomMax = 300;
+discreteInitIndex = 0;
+opticsFlare = 1;
+opticsDisablePeripherialVision = 1;
+};
+};
+};
+};
+class RKSL_optic_LDS_C: RKSL_optic_LDS
+{
+displayName = "LDS (Coyote)";
+author = "da12thMonkey";
+model = "\RKSL_LDS\RKSL_LDS_camo.p3d";
+picture = "\RKSL_LDS\data\UI\gear_RKSL_LDS_C_ca.paa";
+descriptionShort = "Elcan Lightweight Day Sight (SpecterOS4x)<br />Magnification: 4x<br />Shield CQB sight<br />Magnification: 1x<br />RAL 7006 (Coyote Brown) overpaint";
+};
+};
+class CfgVehicles
+{
+class Item_Base_F;
+class RKSL_Item_optic_LDS: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Lightweight Day Sight";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_LDS
+{
+name = "RKSL_optic_LDS";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_LDS_C: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Lightweight Day Sight (Coyote)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_LDS_C
+{
+name = "RKSL_optic_LDS_C";
+count = 1;
+};
+};
+};
+};
+
+
+
+
+
+
+
+
+
+
+
+class cfgPatches
+{
+class RKSL_EOT552
+{
+units[] = {"RKSL_Item_optic_EOT552","RKSL_Item_optic_EOT552_C","RKSL_Item_optic_EOT552X","RKSL_Item_optic_EOT552X_C"};
+weapons[] = {"RKSL_optic_EOT552","RKSL_optic_EOT552_C","RKSL_optic_EOT552X","RKSL_optic_EOT552X_C"};
+requiredVersion = 1.04;
+requiredAddons[] = {"RKSL_Attachments_core","A3_Weapons_F","A3_Weapons_F_Acc","cba_jr","A3_Data_F"};
+version = 1;
+author = "RKSL Studios";
+authorUrl = "http://www.rkslstudios.info/";
+};
+};
+class asdg_OpticRail;
+class asdg_OpticRail1913: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_EOT552 = 1;
+RKSL_optic_EOT552_C = 1;
+RKSL_optic_EOT552X = 1;
+RKSL_optic_EOT552X_C = 1;
+};
+};
+class cfgWeapons
+{
+class ItemCore;
+class InventoryItem_Base_F;
+class InventoryOpticsItem_Base_F;
+class RKSL_optic_EOT552: ItemCore
+{
+scope = 2;
+displayName = "EOTech 552.A65/1";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_EOT552\data\UI\gear_RKSL_EOT552_ca.paa";
+model = "\RKSL_EOT552\RKSL_EOT552.p3d";
+descriptionShort = "EOTech 552<br />Magnification: 1x<br />65/1 MOA Circle/Dot reticle";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 1;
+mass = 4;
+RMBhint = "EOTech 552";
+optics = 1;
+modelOptics = "\A3\Weapons_F\empty";
+class OpticsModes
+{
+class Holo
+{
+opticsID = 1;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 200;
+distanceZoomMax = 200;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_EOT552_C: RKSL_optic_EOT552
+{
+displayName = "EOTech 552.A65/1 (Coyote)";
+author = "da12thMonkey";
+model = "\RKSL_EOT552\RKSL_EOT552_camo.p3d";
+picture = "\RKSL_EOT552\data\UI\gear_RKSL_EOT552_C_ca.paa";
+descriptionShort = "EOTech 552<br />Magnification: 1x<br />65/1 MOA Circle/Dot reticle<br />RAL 7006 (Coyote Brown) overpaint";
+};
+class RKSL_optic_EOT552X: ItemCore
+{
+scope = 2;
+displayName = "EOTech 552.XR308";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_EOT552\data\UI\gear_RKSL_EOT552_ca.paa";
+model = "\RKSL_EOT552\RKSL_EOT552X.p3d";
+descriptionShort = "EOTech 552<br />Magnification: 1x<br />.308 Ballistics reticle";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 1;
+mass = 4;
+RMBhint = "EOTech 552";
+optics = 1;
+modelOptics = "\A3\Weapons_F\empty";
+class OpticsModes
+{
+class Holo
+{
+opticsID = 1;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 300;
+distanceZoomMax = 300;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_EOT552X_C: RKSL_optic_EOT552X
+{
+displayName = "EOTech 552.XR308 (Coyote)";
+author = "da12thMonkey";
+model = "\RKSL_EOT552\RKSL_EOT552X_camo.p3d";
+picture = "\RKSL_EOT552\data\UI\gear_RKSL_EOT552_C_ca.paa";
+descriptionShort = "EOTech 552<br />Magnification: 1x<br />.308 Ballistics reticle<br />RAL 7006 (Coyote Brown) overpaint";
+};
+};
+class CfgVehicles
+{
+class Item_Base_F;
+class RKSL_Item_optic_EOT552: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] EOTech 552.A65/1";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_EOT552
+{
+name = "RKSL_optic_EOT552";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_EOT552_C: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] EOTech 552.A65/1 (Coyote)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_EOT552_C
+{
+name = "RKSL_optic_EOT552_C";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_EOT552X: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] EOTech 552.XR308";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_EOT552X
+{
+name = "RKSL_optic_EOT552X";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_EOT552X_C: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] EOTech 552.XR308 (Coyote)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_EOT552X_C
+{
+name = "RKSL_optic_EOT552X_C";
+count = 1;
+};
+};
+};
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+enum {
+destructengine = 2,
+destructdefault = 6,
+destructwreck = 7,
+destructtree = 3,
+destructtent = 4,
+stabilizedinaxisx = 1,
+stabilizedinaxesxyz = 4,
+stabilizedinaxisy = 2,
+stabilizedinaxesboth = 3,
+destructno = 0,
+stabilizedinaxesnone = 0,
+destructman = 5,
+destructbuilding = 1
+};
+
+class CfgPatches
+{
+class RKSL_PMII
+{
+units[] = {"RKSL_Item_optic_PMII_312","RKSL_Item_optic_PMII_312_sunshade","RKSL_Item_optic_PMII_312_wdl","RKSL_Item_optic_PMII_312_sunshade_wdl","RKSL_Item_optic_PMII_312_des","RKSL_Item_optic_PMII_312_sunshade_des"};
+weapons[] = {"RKSL_optic_PMII_312","RKSL_optic_PMII_312_sunshade","RKSL_optic_PMII_312_wdl","RKSL_optic_PMII_312_sunshade_wdl","RKSL_optic_PMII_312_des","RKSL_optic_PMII_312_sunshade_des"};
+requiredVersion = 1.04;
+requiredAddons[] = {"RKSL_Attachments_core","A3_Weapons_F","A3_Weapons_F_Acc","cba_jr","A3_Data_F"};
+version = 1;
+author = "RKSL Studios";
+authorUrl = "http://www.rkslstudios.info/";
+};
+};
+class asdg_OpticRail;
+class asdg_OpticRail1913: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_PMII_312 = 1;
+RKSL_optic_PMII_312_sunshade = 1;
+RKSL_optic_PMII_312_wdl = 1;
+RKSL_optic_PMII_312_sunshade_wdl = 1;
+RKSL_optic_PMII_312_des = 1;
+RKSL_optic_PMII_312_sunshade_des = 1;
+};
+};
+class cfgWeapons
+{
+class ItemCore;
+class InventoryItem_Base_F;
+class InventoryOpticsItem_Base_F;
+class RKSL_optic_PMII_312: ItemCore
+{
+scope = 2;
+displayName = "S+B 3-12x50 PM II";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_PM_II\UI\RKSL_optic_PMII_312_ca.paa";
+model = "\RKSL_PM_II\PM_II_3-12.p3d";
+descriptionShort = "Schmidt + Bender 3-12x50 PM II<br />Magnification: 3-12x<br />Trijicon RMR<br />Magnification: 1x";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0.2;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 2;
+mass = 15;
+RMBhint = "3-12x50 PM II";
+weaponInfoType = "RscWeaponRangeZeroingFOV";
+optics = 1;
+modelOptics = "\RKSL_PM_II\Optic\RKSL_Mildot-12x";
+class OpticsModes
+{
+class Snip
+{
+opticsID = 1;
+opticsDisplayName = "WFOV";
+useModelOptics = 1;
+opticsPPEffects[] = {"OpticsCHAbera1","OpticsBlur1"};
+opticsZoomMin = 0.02083;
+opticsZoomMax = 0.02778;
+opticsZoomInit = 0.075;
+discreteDistance[] = {100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500};
+discreteDistanceInitIndex = 3;
+distanceZoomMin = 100;
+distanceZoomMax = 1500;
+discretefov[] = {0.08333,0.04167,0.02778,0.02083};
+discreteInitIndex = 1;
+memoryPointCamera = "opticView";
+modelOptics[] = {"\RKSL_PM_II\Optic\RKSL_Mildot-3x","\RKSL_PM_II\Optic\RKSL_Mildot-6x","\RKSL_PM_II\Optic\RKSL_Mildot-9x","\RKSL_PM_II\Optic\RKSL_Mildot-12x"};
+visionMode[] = {"Normal"};
+opticsFlare = 1;
+opticsDisablePeripherialVision = 1;
+cameraDir = "";
+};
+class RMR
+{
+opticsID = 2;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 100;
+distanceZoomMax = 100;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_PMII_312_sunshade: RKSL_optic_PMII_312
+{
+scope = 2;
+displayName = "S+B 3-12x50 PM II (sunshade)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_PM_II\UI\RKSL_optic_PMII_312_sunshade_ca.paa";
+model = "\RKSL_PM_II\PM_II_3-12_sunshade.p3d";
+descriptionShort = "Schmidt + Bender 3-12x50 PM II<br />Magnification: 3-12x<br />Trijicon RMR<br />Magnification: 1x";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0.2;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 2;
+mass = 16;
+RMBhint = "3-12x50 PM II";
+weaponInfoType = "RscWeaponRangeZeroingFOV";
+optics = 1;
+modelOptics = "\RKSL_PM_II\Optic\RKSL_Mildot-12x";
+class OpticsModes
+{
+class Snip
+{
+opticsID = 1;
+opticsDisplayName = "WFOV";
+useModelOptics = 1;
+opticsPPEffects[] = {"OpticsCHAbera1","OpticsBlur1"};
+opticsZoomMin = 0.02083;
+opticsZoomMax = 0.02778;
+opticsZoomInit = 0.075;
+discreteDistance[] = {100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500};
+discreteDistanceInitIndex = 3;
+distanceZoomMin = 100;
+distanceZoomMax = 1500;
+discretefov[] = {0.08333,0.04167,0.02778,0.02083};
+discreteInitIndex = 1;
+memoryPointCamera = "opticView";
+modelOptics[] = {"\RKSL_PM_II\Optic\RKSL_Mildot-3x","\RKSL_PM_II\Optic\RKSL_Mildot-6x","\RKSL_PM_II\Optic\RKSL_Mildot-9x","\RKSL_PM_II\Optic\RKSL_Mildot-12x"};
+visionMode[] = {"Normal"};
+opticsFlare = 1;
+opticsDisablePeripherialVision = 1;
+cameraDir = "";
+};
+class RMR
+{
+opticsID = 2;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 100;
+distanceZoomMax = 100;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_PMII_312_wdl: RKSL_optic_PMII_312
+{
+displayName = "S+B 3-12x50 PM II (W)";
+author = "da12thMonkey";
+model = "\RKSL_PM_II\camo\PM_II_3-12_wdl.p3d";
+picture = "\RKSL_PM_II\UI\RKSL_optic_PMII_312_wdl_ca.paa";
+descriptionShort = "Schmidt + Bender 3-12x50 PM II<br />Magnification: 3-12x<br />Trijicon RMR<br />Magnification: 1x<br />Woodland camouflage overpaint";
+};
+class RKSL_optic_PMII_312_des: RKSL_optic_PMII_312
+{
+displayName = "S+B 3-12x50 PM II (D)";
+author = "da12thMonkey";
+model = "\RKSL_PM_II\camo\PM_II_3-12_des.p3d";
+picture = "\RKSL_PM_II\UI\RKSL_optic_PMII_312_des_ca.paa";
+descriptionShort = "Schmidt + Bender 3-12x50 PM II<br />Magnification: 3-12x<br />Trijicon RMR<br />Magnification: 1x<br />Desert camouflage overpaint";
+};
+class RKSL_optic_PMII_312_sunshade_wdl: RKSL_optic_PMII_312_sunshade
+{
+displayName = "S+B 3-12x50 PM II (sunshade) (W)";
+author = "da12thMonkey";
+model = "\RKSL_PM_II\camo\PM_II_3-12_sun_wdl.p3d";
+picture = "\RKSL_PM_II\UI\RKSL_optic_PMII_312_wdl_sunshade_ca.paa";
+descriptionShort = "Schmidt + Bender 3-12x50 PM II<br />Magnification: 3-12x<br />Trijicon RMR<br />Magnification: 1x<br />Woodland camouflage overpaint";
+};
+class RKSL_optic_PMII_312_sunshade_des: RKSL_optic_PMII_312_sunshade
+{
+displayName = "S+B 3-12x50 PM II (sunshade) (D)";
+author = "da12thMonkey";
+model = "\RKSL_PM_II\camo\PM_II_3-12_sun_des.p3d";
+picture = "\RKSL_PM_II\UI\RKSL_optic_PMII_312_des_sunshade_ca.paa";
+descriptionShort = "Schmidt + Bender 3-12x50 PM II<br />Magnification: 3-12x<br />Trijicon RMR<br />Magnification: 1x<br />Desert camouflage overpaint";
+};
+};
+class CfgVehicles
+{
+class Item_Base_F;
+class RKSL_Item_optic_PMII_312: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 3-12x50 PM II";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_312
+{
+name = "RKSL_optic_PMII_312";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_312_sunshade: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 3-12x50 PM II (sunshade)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_312_sunshade
+{
+name = "RKSL_optic_PMII_312_sunshade";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_312_wdl: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 3-12x50 PM II (W)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_312_wdl
+{
+name = "RKSL_optic_PMII_312_wdl";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_312_sunshade_wdl: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 3-12x50 PM II (sunshade) (W)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_312_sunshade_wdl
+{
+name = "RKSL_optic_PMII_312_sunshade_wdl";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_312_des: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 3-12x50 PM II (D)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_312_des
+{
+name = "RKSL_optic_PMII_312_des";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_312_sunshade_des: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 3-12x50 PM II (sunshade) (D)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_312_sunshade_des
+{
+name = "RKSL_optic_PMII_312_sunshade_des";
+count = 1;
+};
+};
+};
+};
+
+
+
+
+
+
+
+
+
+
+
+
+class cfgPatches
+{
+class RKSL_RMR
+{
+units[] = {"RKSL_Item_optic_RMR_MS19","RKSL_Item_optic_RMR_MS19_FDE","RKSL_Item_optic_RMR_HG","RKSL_Item_optic_RMR_HG_FDE","RKSL_Item_optic_RMR_RM33","RKSL_Item_optic_RMR_RM33_FDE"};
+weapons[] = {"RKSL_optic_RMR_MS19","RKSL_optic_RMR_MS19_FDE","RKSL_optic_RMR_HG","RKSL_optic_RMR_HG_FDE","RKSL_optic_RMR_RM33","RKSL_optic_RMR_RM33_FDE"};
+requiredVersion = 1.04;
+requiredAddons[] = {"RKSL_Attachments_core","A3_Weapons_F","A3_Weapons_F_Acc","cba_jr","A3_Data_F"};
+version = 1;
+author = "RKSL Studios";
+authorUrl = "http://www.rkslstudios.info/";
+};
+};
+class asdg_OpticRail;
+class asdg_OpticRail1913: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_RMR_MS19 = 1;
+RKSL_optic_RMR_MS19_FDE = 1;
+RKSL_optic_RMR_RM33 = 1;
+RKSL_optic_RMR_RM33_FDE = 1;
+};
+};
+class asdg_PistolOpticMount: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_RMR_HG = 1;
+RKSL_optic_RMR_HG_FDE = 1;
+};
+};
+class asdg_PistolOpticRail1913: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_RMR_MS19 = 1;
+RKSL_optic_RMR_MS19_FDE = 1;
+RKSL_optic_RMR_RM33 = 1;
+RKSL_optic_RMR_RM33_FDE = 1;
+};
+};
+class cfgWeapons
+{
+class ItemCore;
+class InventoryItem_Base_F;
+class InventoryOpticsItem_Base_F;
+class RKSL_optic_RMR_MS19: ItemCore
+{
+scope = 2;
+displayName = "RMR (MS19)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_RMR\data\UI\gear_RKSL_RMR_MS19_ca.paa";
+model = "\RKSL_RMR\RKSL_RMR_MS19.p3d";
+descriptionShort = "Trijicon RMR<br />MS19 weaver rail mount<br />Magnification: 1x";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 1;
+mass = 3;
+RMBhint = "Trijicon RMR";
+optics = 1;
+modelOptics = "\A3\Weapons_F\empty";
+class OpticsModes
+{
+class RMR
+{
+opticsID = 1;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 100;
+distanceZoomMax = 100;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_RMR_MS19_FDE: RKSL_optic_RMR_MS19
+{
+displayName = "RMR (MS19) (FDE)";
+author = "da12thMonkey";
+model = "\RKSL_RMR\RKSL_RMR_MS19_FDE.p3d";
+picture = "\RKSL_RMR\data\UI\gear_RKSL_RMR_MS19_FDE_ca.paa";
+descriptionShort = "Trijicon RMR<br />MS19 weaver rail mount<br />Magnification: 1x<br />Flat Dark Earth finish";
+};
+class RKSL_optic_RMR_HG: ItemCore
+{
+scope = 2;
+displayName = "RMR (Handgun)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_RMR\data\UI\gear_RKSL_RMR_HG_ca.paa";
+model = "\RKSL_RMR\RKSL_RMR_HG.p3d";
+descriptionShort = "Trijicon RMR<br />Low-profile mount for handguns<br />Magnification: 1x";
+inertia = 0;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 1;
+mass = 2;
+RMBhint = "Trijicon RMR";
+optics = 1;
+modelOptics = "\A3\Weapons_F\empty";
+class OpticsModes
+{
+class RMR
+{
+opticsID = 1;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 50;
+distanceZoomMax = 50;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_RMR_HG_FDE: RKSL_optic_RMR_HG
+{
+displayName = "RMR (Handgun) (FDE)";
+author = "da12thMonkey";
+model = "\RKSL_RMR\RKSL_RMR_HG_FDE.p3d";
+picture = "\RKSL_RMR\data\UI\gear_RKSL_RMR_HG_FDE_ca.paa";
+descriptionShort = "Trijicon RMR<br />Low-profile mount for handguns<br />Magnification: 1x<br />Flat Dark Earth finish";
+};
+class RKSL_optic_RMR_RM33: ItemCore
+{
+scope = 2;
+displayName = "RMR (RM33)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+picture = "\RKSL_RMR\data\UI\gear_RKSL_RMR_RM33_ca.paa";
+model = "\RKSL_RMR\RKSL_RMR_RM33.p3d";
+descriptionShort = "Trijicon RMR<br />RM33 Picatinny rail mount<br />Magnification: 1x";
+weaponInfoType = "RscWeaponZeroing";
+inertia = 0;
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 1;
+mass = 3;
+RMBhint = "Trijicon RMR";
+optics = 1;
+modelOptics = "\A3\Weapons_F\empty";
+class OpticsModes
+{
+class RMR
+{
+opticsID = 1;
+useModelOptics = 0;
+opticsPPEffects[] = {""};
+opticsFlare = 0;
+opticsDisablePeripherialVision = 0;
+opticsZoomMin = 0.25;
+opticsZoomMax = 1.125;
+opticsZoomInit = 0.75;
+memoryPointCamera = "eye";
+visionMode[] = {};
+distanceZoomMin = 100;
+distanceZoomMax = 100;
+cameraDir = "";
+};
+};
+};
+};
+class RKSL_optic_RMR_RM33_FDE: RKSL_optic_RMR_RM33
+{
+displayName = "RMR (RM33) (FDE)";
+author = "da12thMonkey";
+model = "\RKSL_RMR\RKSL_RMR_RM33_FDE.p3d";
+picture = "\RKSL_RMR\data\UI\gear_RKSL_RMR_RM33_FDE_ca.paa";
+descriptionShort = "Trijicon RMR<br />RM33 Picatinny rail mount<br />Magnification: 1x<br />Flat Dark Earth finish";
+};
+class Rifle_Long_Base_F;
+class EBR_base_F: Rifle_Long_Base_F
+{
+class WeaponSlotsInfo;
+};
+class srifle_EBR_F: EBR_base_F
+{
+class WeaponSlotsInfo: WeaponSlotsInfo
+{
+class CowsSlot: asdg_OpticRail1913
+{
+class compatibleItems: compatibleItems
+{
+RKSL_optic_RMR_MS19 = 0;
+RKSL_optic_RMR_MS19_FDE = 0;
+RKSL_optic_RMR_RM33 = 0;
+RKSL_optic_RMR_RM33_FDE = 0;
+};
+};
+};
+};
+};
+class CfgVehicles
+{
+class Item_Base_F;
+class RKSL_Item_optic_RMR_MS19: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Trijicon RMR (MS19)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_RMR_MS19
+{
+name = "RKSL_optic_RMR_MS19";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_RMR_MS19_FDE: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Trijicon RMR (MS19) (FDE)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_RMR_MS19_FDE
+{
+name = "RKSL_optic_RMR_MS19_FDE";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_RMR_HG: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Trijicon RMR (Handgun)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_RMR_HG
+{
+name = "RKSL_optic_RMR_HG";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_RMR_HG_FDE: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Trijicon RMR (Handgun) (FDE)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_RMR_HG_FDE
+{
+name = "RKSL_optic_RMR_HG_FDE";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_RMR_RM33: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Trijicon RMR (RM33)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_RMR_RM33
+{
+name = "RKSL_optic_RMR_RM33";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_RMR_RM33_FDE: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] Trijicon RMR (RM33) (FDE)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Collimators";
+class TransportItems
+{
+class RKSL_optic_RMR_RM33_FDE
+{
+name = "RKSL_optic_RMR_RM33_FDE";
+count = 1;
+};
+};
+};
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+enum {
+destructengine = 2,
+destructdefault = 6,
+destructwreck = 7,
+destructtree = 3,
+destructtent = 4,
+stabilizedinaxisx = 1,
+stabilizedinaxesxyz = 4,
+stabilizedinaxisy = 2,
+stabilizedinaxesboth = 3,
+destructno = 0,
+stabilizedinaxesnone = 0,
+destructman = 5,
+destructbuilding = 1
+};
+
+class CfgPatches
+{
+class RKSL_PMII_525
+{
+units[] = {"RKSL_Item_optic_PMII_525","RKSL_Item_optic_PMII_525_des","RKSL_Item_optic_PMII_525_wdl"};
+weapons[] = {"RKSL_optic_PMII_525","RKSL_optic_PMII_525_des","RKSL_optic_PMII_525_wdl"};
+requiredVersion = 1.04;
+requiredAddons[] = {"RKSL_Attachments_core","A3_Weapons_F","A3_Weapons_F_Acc","cba_jr","A3_Data_F"};
+version = 1;
+author = "RKSL Studios";
+authorUrl = "http://www.rkslstudios.info/";
+};
+};
+class asdg_OpticRail;
+class asdg_OpticRail1913: asdg_OpticRail
+{
+class compatibleItems
+{
+RKSL_optic_PMII_525 = 1;
+RKSL_optic_PMII_525_des = 1;
+RKSL_optic_PMII_525_wdl = 1;
+};
+};
+class cfgWeapons
+{
+class ItemCore;
+class InventoryItem_Base_F;
+class InventoryOpticsItem_Base_F;
+class RKSL_optic_PMII_525: ItemCore
+{
+scope = 2;
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+displayName = "S+B 5-25x56 PM II";
+picture = "\RKSL_PM_525\UI\RKSL_optic_PMII_525_ca.paa";
+model = "\RKSL_PM_525\PM_II_5-25.p3d";
+descriptionShort = "Schmidt + Bender 5-25x56 PM II<br />Magnification: 5-25x";
+weaponInfoType = "RscWeaponZeroing";
+class ItemInfo: InventoryOpticsItem_Base_F
+{
+opticType = 2;
+mass = 19;
+RMBhint = "5-25x56 PM II";
+weaponInfoType = "RscWeaponRangeZeroingFOV";
+optics = 1;
+modelOptics = "\RKSL_PM_525\Optic\RKSL_Mildot-25x";
+class OpticsModes
+{
+class Snip
+{
+opticsID = 1;
+opticsDisplayName = "WFOV";
+useModelOptics = 1;
+opticsPPEffects[] = {"OpticsCHAbera1","OpticsBlur1"};
+opticsZoomMin = 0.01;
+opticsZoomMax = 0.025;
+opticsZoomInit = 0.05;
+discreteDistance[] = {300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400,2500};
+discreteDistanceInitIndex = 2;
+distanceZoomMin = 300;
+distanceZoomMax = 2300;
+discretefov[] = {0.05,0.025,0.0167,0.0125,0.01};
+discreteInitIndex = 0;
+memoryPointCamera = "opticView";
+modelOptics[] = {"\RKSL_PM_525\Optic\RKSL_Mildot-5x","\RKSL_PM_525\Optic\RKSL_Mildot-10x","\RKSL_PM_525\Optic\RKSL_Mildot-15x","\RKSL_PM_525\Optic\RKSL_Mildot-20x","\RKSL_PM_525\Optic\RKSL_Mildot-25x"};
+visionMode[] = {"Normal"};
+opticsFlare = 1;
+opticsDisablePeripherialVision = 1;
+cameraDir = "";
+};
+class Snip_Illum: Snip
+{
+opticsID = 2;
+modelOptics[] = {"\RKSL_PM_525\Optic\RKSL_Mildot-5x_Illum","\RKSL_PM_525\Optic\RKSL_Mildot-10x_Illum","\RKSL_PM_525\Optic\RKSL_Mildot-15x_Illum","\RKSL_PM_525\Optic\RKSL_Mildot-20x_Illum","\RKSL_PM_525\Optic\RKSL_Mildot-25x_Illum"};
+};
+};
+};
+};
+class RKSL_optic_PMII_525_des: RKSL_optic_PMII_525
+{
+displayName = "S+B 5-25x56 PM II (D)";
+author = "da12thMonkey";
+model = "\RKSL_PM_525\camo\PM_II_5-25_des.p3d";
+picture = "\RKSL_PM_525\UI\RKSL_optic_PMII_525_des_ca.paa";
+descriptionShort = "Schmidt + Bender 5-25x56 PM II<br />Magnification: 5-25x<br />Desert camouflage overpaint";
+};
+class RKSL_optic_PMII_525_wdl: RKSL_optic_PMII_525
+{
+displayName = "S+B 5-25x56 PM II (W)";
+author = "da12thMonkey";
+model = "\RKSL_PM_525\camo\PM_II_5-25_wdl.p3d";
+picture = "\RKSL_PM_525\UI\RKSL_optic_PMII_525_wdl_ca.paa";
+descriptionShort = "Schmidt + Bender 5-25x56 PM II<br />Magnification: 5-25x<br />Woodland camouflage overpaint";
+};
+};
+class CfgVehicles
+{
+class Item_Base_F;
+class RKSL_Item_optic_PMII_525: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 5-25x56 PM II";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_525
+{
+name = "RKSL_optic_PMII_525";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_525_des: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 5-25x56 PM II (D)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_525_des
+{
+name = "RKSL_optic_PMII_525_des";
+count = 1;
+};
+};
+};
+class RKSL_Item_optic_PMII_525_wdl: Item_Base_F
+{
+scope = 2;
+scopeCurator = 2;
+displayName = "[RKSL] 5-25x56 PM II (W)";
+author = "da12thMonkey";
+dlc = "RKSL_Attachments";
+vehicleClass = "WeaponAccessories";
+editorCategory = "EdCat_WeaponAttachments";
+editorSubcategory = "EdSubcat_TopSlot_Optics";
+class TransportItems
+{
+class RKSL_optic_PMII_525_wdl
+{
+name = "RKSL_optic_PMII_525_wdl";
+count = 1;
+};
+};
+};
+};
+

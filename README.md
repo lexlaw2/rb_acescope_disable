@@ -16,7 +16,8 @@ configfile >> "CfgWeapons" >> "HLC_Optic_ZFSG1" >> "ItemInfo" >> "OpticsModes" >
 
 Теперь касаемо БАФа, он дает зависимость к вот этому https://steamcommunity.com/sharedfiles/filedetails/?id=1661066023
 и прицелы из этого мода
-RKSL_optic_PMII_312_des
+
+RKSL_optic_PMII_312_des :RKSL_optic_PMII_312
 RKSL_optic_PMII_312_sunshade
 RKSL_optic_PMII_312_sunshade_des
 RKSL_optic_PMII_312_sunshade_wdl
@@ -25,3 +26,12 @@ RKSL_optic_PMII_525
 RKSL_optic_PMII_525_des
 RKSL_optic_PMII_525_wdl
 не имеют маховиков вообще, надо будет прикрутить
+RKSL_optic_PMII_312
+
+добавляю ACE_ScopeHeightAboveRail, но че это такое не знаю
+ACE_ScopeHeightAboveRail = 4.2098;
+		ACE_ScopeAdjust_Vertical[] = {0, 27};
+		ACE_ScopeAdjust_Horizontal[] = {-8, 8};
+		ACE_ScopeAdjust_VerticalIncrement = 0.1;
+		ACE_ScopeAdjust_HorizontalIncrement = 0.1;
+copyToClipboard(preProcessFile "\RKSL_LDS\config.cpp")

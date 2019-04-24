@@ -45,4 +45,15 @@ class RKSL_optic_PMII_525: ItemCore{
 			};
 		};
 };
+ class RKSL_optic_PMII_312_sunshade: RKSL_optic_PMII_312{
+
+		 class ItemInfo: InventoryOpticsItem_Base_F{
+			class OpticsModes{
+				class Snip{
+					discreteDistance[] = {100};
+					discreteDistanceInitIndex = 0;
+				};
+			};
+		};
+};
 };

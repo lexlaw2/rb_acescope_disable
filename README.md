@@ -35,3 +35,10 @@ ACE_ScopeHeightAboveRail = 4.2098;
 		ACE_ScopeAdjust_VerticalIncrement = 0.1;
 		ACE_ScopeAdjust_HorizontalIncrement = 0.1;
 copyToClipboard(preProcessFile "\RKSL_LDS\config.cpp")
+
+@[RE]lexlaw по поводу прицелов со всеми все ок, но у 
+RKSL_optic_PMII_312_sunshade
+RKSL_optic_PMII_312_sunshade_des
+RKSL_optic_PMII_312_sunshade_wdl 
+
+Не отключен ванильный зероинг

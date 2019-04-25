@@ -4,8 +4,10 @@
 hlc_optic_leupoldm3a_g3 +
 hlc_optic_leupoldm3a +
 hlc_optic_zf95_g3 +
+
 hlc_optic_zf95_base  ---> hlc_optic_ZF95Base +
 hlc_optic_vomz +
+
 hlc_optic_vomz3d +
 hlc_optic_lrt_m14 +
 Скорее всего лежат в pbo hlc_core, но могут быть и в модах на оружие от hlc (он же NIArms в папке RMCMods)

@@ -12,13 +12,13 @@ class CfgPatches
 	};
 };
 class CfgWeapons{
-class ItemCore;
+	class ItemCore;
 
 	class optic_LRPS: ItemCore{
-	class ItemInfo;
+		class ItemInfo;
 	};
 
-class hlc_optic_LeupoldM3A : optic_lrps {
+	class hlc_optic_LeupoldM3A : optic_lrps {
 			
 			class ItemInfo: ItemInfo{
 			class OpticsModes{

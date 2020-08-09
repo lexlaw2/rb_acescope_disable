@@ -12,8 +12,8 @@ class CfgPatches
 	};
 };
 class CfgWeapons{
-class InventoryOpticsItem_Base_F;
-class ItemCore;
+	class InventoryOpticsItem_Base_F;
+	class ItemCore;
 	class RKSL_optic_PMII_312: ItemCore{
 		ACE_ScopeHeightAboveRail = 4.2098;
 		ACE_ScopeAdjust_Vertical[] = {0, 27};
@@ -29,7 +29,7 @@ class ItemCore;
 			};
 		};
 	};
-class RKSL_optic_PMII_525: ItemCore{
+	class RKSL_optic_PMII_525: ItemCore{
 		ACE_ScopeHeightAboveRail = 4.2098;
 		ACE_ScopeAdjust_Vertical[] = {0, 27};
 		ACE_ScopeAdjust_Horizontal[] = {-8, 8};
@@ -45,7 +45,7 @@ class RKSL_optic_PMII_525: ItemCore{
 			};
 		};
 };
- class RKSL_optic_PMII_312_sunshade: RKSL_optic_PMII_312{
+ 	class RKSL_optic_PMII_312_sunshade: RKSL_optic_PMII_312{
 
 		 class ItemInfo: InventoryOpticsItem_Base_F{
 			class OpticsModes{

@@ -12,7 +12,7 @@ class CfgPatches
 	};
 };
 class CfgWeapons{
-	class InventoryOpticsItem_Base_F;
+class InventoryOpticsItem_Base_F;
 class ItemCore;
 	class RKSL_optic_PMII_312: ItemCore{
 		ACE_ScopeHeightAboveRail = 4.2098;
